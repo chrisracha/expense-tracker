@@ -1,33 +1,92 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 <MudLayout>
-    <MudAppBar Elevation="1">
+    <MudAppBar Elevation="0" Class="bg-blue-500 text-white shadow-none">
         <MudStaticNavDrawerToggle DrawerId="nav-drawer" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" />
-        <MudText Typo="Typo.h5" Class="ml-3">Expense Tracker</MudText>
+        <MudText Typo="Typo.h5" Class="ml-3 font-semibold tracking-tight">Expense Tracker</MudText>
         <MudSpacer />
         <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
     </MudAppBar>
-    <MudDrawer id="nav-drawer" @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
+    <MudDrawer id="nav-drawer" @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="0" Class="bg-gray-800 text-white">
         <NavMenu />
     </MudDrawer>
-    <MudMainContent Class="pt-16 ma-4 pa-4">
+    <MudMainContent Class="pt-16 pa-16 bg-gray-100 dark:bg-gray-900 rounded-lg shadow">
         @Body
     </MudMainContent>
 </MudLayout>
 
-
-<div id="blazor-error-ui" data-nosnippet>
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
+<div id="blazor-error-ui" data-nosnippet class="fixed bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded shadow-lg flex items-center space-x-2 z-50">
+    <span>An unhandled error has occurred.</span>
+    <a href="." class="underline hover:text-gray-200">Reload</a>
+    <span class="dismiss cursor-pointer ml-2">🗙</span>
 </div>
 
 @code {
     private bool _drawerOpen = true;
+    private bool _isDarkMode = true;
+
+    private MudTheme _theme = new MudTheme
+    {
+        Typography = new Typography()
+        {
+            Default = new DefaultTypography()
+            {
+                FontFamily = new[] { "Inter", "ui-sans-serif", "system-ui", "sans-serif" },
+                FontSize = "0.875rem",
+                FontWeight = "400",
+                LineHeight = "1.5",
+                LetterSpacing = "0em"
+            },
+            H1 = new H1Typography()
+            {
+                FontFamily = new[] { "Inter", "ui-sans-serif", "system-ui", "sans-serif" },
+                FontSize = "2.25rem",
+                FontWeight = "700",
+                LineHeight = "2.5rem",
+                LetterSpacing = "-0.02em"
+            },
+            H2 = new H2Typography()
+            {
+                FontFamily = new[] { "Inter", "ui-sans-serif", "system-ui", "sans-serif" },
+                FontSize = "1.5rem",
+                FontWeight = "600",
+                LineHeight = "2rem",
+                LetterSpacing = "-0.01em"
+            },
+            H3 = new H3Typography()
+            {
+                FontFamily = new[] { "Inter", "ui-sans-serif", "system-ui", "sans-serif" },
+                FontSize = "1.25rem",
+                FontWeight = "500",
+                LineHeight = "1.75rem",
+                LetterSpacing = "0em"
+            },
+        },
+        PaletteLight = new PaletteLight()
+        {
+            Primary = "#3B82F6",
+            Secondary = "#6B7280",
+            Background = "#F3F4F6",
+            Surface = "#FFFFFF",
+            Error = "#EF4444",
+            Info = "#0EA5E9",
+            Success = "#22C55E",
+            Warning = "#F59E42"
+        },
+        PaletteDark = new PaletteDark()
+        {
+            Primary = "#3B82F6",
+            Secondary = "#6B7280",
+            Background = "#1F2937",
+            Surface = "#111827",
+            Error = "#EF4444",
+            Info = "#0EA5E9",
+            Success = "#22C55E",
+            Warning = "#F59E42"
+        }
+    };
 }
-
-
