@@ -1,11 +1,49 @@
 ﻿@page "/"
 
 <PageTitle>Home</PageTitle>
-    <AuthorizeView>
-        <NotAuthorized>
-        <MudText Typo="Typo.h3" Class="mb-8">Welcome to the Expense Tracker App.</MudText>
-        <MudAlert Severity="Severity.Normal" ContentAlignment="HorizontalAlignment.Start">
-        Log-in/Sign-up to use.
-        </MudAlert>
-        </NotAuthorized>
-    </AuthorizeView>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <MudPaper Class="pa-6" Elevation="2">
+        <AuthorizeView>
+            <NotAuthorized>
+                <MudText Typo="Typo.h3" Class="mb-4 text-center" Align="Align.Center">Welcome to the Expense Tracker App</MudText>
+                <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center" Class="mb-4">
+                    Log-in/Sign-up to use.
+                </MudAlert>
+                <MudGrid Justify="Justify.Center">
+                    <MudItem xs="12">
+                        <MudButton Href="/Account/Login" 
+                                   Variant="Variant.Filled" 
+                                   Color="Color.Primary" 
+                                   FullWidth="true">
+                            Login
+                        </MudButton>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudButton Href="/Account/Register" 
+                                   Variant="Variant.Outlined" 
+                                   Color="Color.Primary" 
+                                   FullWidth="true">
+                            Sign Up
+                        </MudButton>
+                    </MudItem>
+                </MudGrid>
+            </NotAuthorized>
+            <Authorized>
+                <MudText Typo="Typo.h1" Class="mb-4 text-center">Welcome Back!</MudText>
+                <MudText Typo="Typo.h6" Class="text-center mb-4">Ready to track your expenses?</MudText>
+                <MudGrid Justify="Justify.Center">
+                    <MudItem xs="12" sm="8" md="6">
+                        <MudButton Href="/expenses" 
+                                   Variant="Variant.Filled" 
+                                   Color="Color.Primary" 
+                                   FullWidth="true"
+                                   StartIcon="@Icons.Material.Filled.Add">
+                            Start Tracking Expenses
+                        </MudButton>
+                    </MudItem>
+                </MudGrid>
+            </Authorized>
+        </AuthorizeView>
+    </MudPaper>
+</MudContainer>

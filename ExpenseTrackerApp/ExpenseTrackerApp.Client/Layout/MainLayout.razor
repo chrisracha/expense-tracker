@@ -5,12 +5,13 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 <MudLayout>
-    <MudAppBar Position="AppBarPosition.Sticky" Elevation="0" Class="bg-blue-500 text-white shadow-none">
-        <MudText Typo="Typo.h3" Class="ml-3 font-semibold tracking-tight">Expense Tracker App</MudText>
+    <MudAppBar Position="AppBarPosition.Sticky" Elevation="0" Color="Color.Primary" Class="pa-4">
+        <MudIcon Icon="@Icons.Material.Filled.ReceiptLong" Class="mr-2" />
+        <MudText Typo="Typo.h3" Class="tracking-tight font-bold">Expense Tracker App</MudText>
         <MudSpacer />
         <NavMenu />
     </MudAppBar>
-    <MudMainContent Class="pt-16 ma-16 bg-gray-100 dark:bg-gray-900 rounded-lg shadow">
+    <MudMainContent Class="pt-16 ma-16 rounded-lg shadow">
         @Body
     </MudMainContent>
 </MudLayout>
@@ -38,23 +39,25 @@
             },
             H1 = new H1Typography()
             {
-                FontFamily = new[] { "Inter", "ui-sans-serif", "system-ui", "sans-serif" },
+                FontFamily = new[] { "Anton", "sans-serif" },
                 FontSize = "2.25rem",
-                FontWeight = "700",
+                FontWeight = "400",
                 LineHeight = "2.5rem",
-                LetterSpacing = "-0.02em"
+                LetterSpacing = "0em",
+                TextTransform = "uppercase"
             },
             H2 = new H2Typography()
             {
-                FontFamily = new[] { "Inter", "ui-sans-serif", "system-ui", "sans-serif" },
+                FontFamily = new[] { "Anton", "sans-serif" },
                 FontSize = "1.5rem",
-                FontWeight = "600",
+                FontWeight = "400",
                 LineHeight = "2rem",
-                LetterSpacing = "-0.01em"
+                LetterSpacing = "0em",
+                TextTransform = "uppercase"
             },
             H3 = new H3Typography()
             {
-                FontFamily = new[] { "Inter", "ui-sans-serif", "system-ui", "sans-serif" },
+                FontFamily = new[] { "Inter", "sans-serif" },
                 FontSize = "1.25rem",
                 FontWeight = "500",
                 LineHeight = "1.75rem",
@@ -63,14 +66,14 @@
         },
         PaletteLight = new PaletteLight()
         {
-            Primary = "#3B82F6",
-            Secondary = "#6B7280",
-            Background = "#F3F4F6",
+            Primary = "#0066CC",
+            Secondary = "#6699FF",
+            Background = "#F4FAFF",
             Surface = "#FFFFFF",
-            Error = "#EF4444",
-            Info = "#0EA5E9",
-            Success = "#22C55E",
-            Warning = "#F59E42"
+            Error = "#B00020",
+            Info = "#1976D2",
+            Success = "#43A047",
+            Warning = "#FFA000"
         },
         PaletteDark = new PaletteDark()
         {
