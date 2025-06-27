@@ -5,16 +5,12 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 <MudLayout>
-    <MudAppBar Elevation="0" Class="bg-blue-500 text-white shadow-none">
-        <MudStaticNavDrawerToggle DrawerId="nav-drawer" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" />
-        <MudText Typo="Typo.h5" Class="ml-3 font-semibold tracking-tight">Expense Tracker</MudText>
+    <MudAppBar Position="AppBarPosition.Sticky" Elevation="0" Class="bg-blue-500 text-white shadow-none">
+        <MudText Typo="Typo.h3" Class="ml-3 font-semibold tracking-tight">Expense Tracker App</MudText>
         <MudSpacer />
-        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
-    </MudAppBar>
-    <MudDrawer id="nav-drawer" @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="0" Class="bg-gray-800 text-white">
         <NavMenu />
-    </MudDrawer>
-    <MudMainContent Class="pt-16 pa-16 bg-gray-100 dark:bg-gray-900 rounded-lg shadow">
+    </MudAppBar>
+    <MudMainContent Class="pt-16 ma-16 bg-gray-100 dark:bg-gray-900 rounded-lg shadow">
         @Body
     </MudMainContent>
 </MudLayout>
@@ -26,7 +22,6 @@
 </div>
 
 @code {
-    private bool _drawerOpen = true;
     private bool _isDarkMode = true;
 
     private MudTheme _theme = new MudTheme
