@@ -13,7 +13,7 @@ namespace ExpenseTrackerApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20250625071028_added category and expenses")]
-    partial class addedcategoryandexpenses
+    partial class AddedCategoryAndExpenses
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

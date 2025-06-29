@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ExpenseTrackerApp.Migrations
 {
     /// <inheritdoc />
-    public partial class addedcategoryandexpenses : Migration
+    public partial class AddedCategoryAndExpenses : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
